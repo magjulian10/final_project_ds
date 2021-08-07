@@ -53,8 +53,24 @@ new_data
 
 
 ```{r}
-new_data %>%
+featuring <- new_data %>%
   filter(str_detect(Artist,"featuring"))
+featuring
 ```
+
+```{r}
+feat_rank <- featuring %>%
+  select("Rank")
+```
+
+
+```{r}
+feat_song <- featuring %>%
+  select("Song")
+```
+
+
+
+
 
 
