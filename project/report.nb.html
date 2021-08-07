@@ -220,8 +220,69 @@ pre code {
 <p>You can add sections as you see fit. Make sure you have a section called “Introduction” at the beginning and a section called “Conclusion” at the end. The rest is up to you!</p>
 <p><em>Make use of your knowledge of Markdown to appropriately typeset this report!</em></p>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
+<pre class="r"><code>library(tidyverse)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="loading-the-data" class="section level2">
+<h2>Loading the data</h2>
+<p>load the <code>datasets</code></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWVyX2hpdHNfVVJMIDwtIFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3JlaXNhbmFyL2RhdGFzZXRzL21hc3Rlci9CQl90b3AxMDBfMjAxNS5jc3ZcIlxuc3VtbWVyX2hpdHMgPC0gcmVhZC5jc3Yoc3VtbWVyX2hpdHNfVVJMKVxuc3VtbWVyX2hpdHNcbmBgYCJ9 -->
+<pre class="r"><code>summer_hits_URL &lt;- &quot;https://raw.githubusercontent.com/reisanar/datasets/master/BB_top100_2015.csv&quot;
+summer_hits &lt;- read.csv(summer_hits_URL)
+summer_hits</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYmlsbGJvYXJkX3RvcF9oaXRzX2xvbmcgPC0gXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vcmVpc2FuYXIvZGF0YXNldHMvZTc0ZGU5ZTE2MjI3NTI3ZGExZjEyMjA4ZGI4OWZlODIxODgyNjlmYi9iYlRvcDEwMC5jc3ZcIlxuYmJfZXh0cmFfaW5mbyA8LSByZWFkLmNzdihiaWxsYm9hcmRfdG9wX2hpdHNfbG9uZylcbmJiX2V4dHJhX2luZm9cbmBgYCJ9 -->
+<pre class="r"><code>billboard_top_hits_long &lt;- &quot;https://raw.githubusercontent.com/reisanar/datasets/e74de9e16227527da1f12208db89fe82188269fb/bbTop100.csv&quot;
+bb_extra_info &lt;- read.csv(billboard_top_hits_long)
+bb_extra_info</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYmIyMDE1IDwtIGJiX2V4dHJhX2luZm8gJT4lIFxuICBmaWx0ZXIoeWVhciA9PSAyMDE1KSBcbmJiMjAxNVxuYGBgIn0= -->
+<pre class="r"><code>bb2015 &lt;- bb_extra_info %&gt;% 
+  filter(year == 2015) 
+bb2015</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmFtZXMoYmIyMDE1KVtuYW1lcyhiYjIwMTUpID09ICdhcnRpc3RfbmFtZSddIDwtICdBcnRpc3QnXG5gYGAifQ== -->
+<pre class="r"><code>names(bb2015)[names(bb2015) == &#39;artist_name&#39;] &lt;- &#39;Artist&#39;</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmV3X2RhdGEgPC0gZnVsbF9qb2luKHN1bW1lcl9oaXRzLCBiYjIwMTUsIGJ5ID0gXCJBcnRpc3RcIilcbm5ld19kYXRhXG5gYGAifQ== -->
+<pre class="r"><code>new_data &lt;- full_join(summer_hits, bb2015, by = &quot;Artist&quot;)
+new_data</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmV3X2RhdGEgJT4lXG4gIGZpbHRlcihBcnRpc3QgPT0gXCJ0aGUgd2Vla25kXCIpXG5gYGAifQ== -->
+<pre class="r"><code>new_data %&gt;%
+  filter(Artist == &quot;the weeknd&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUmVwb3J0IGZvciBJbnRybyB0byBEYXRhIFNjaWVuY2UiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KClRoaXMgaXMgd2hlcmUgdGhlIGZpbmFsIHByb2plY3QgcmVwb3J0IHdyaXRlLXVwIGdvZXMuIAoKCkJlZm9yZSB5b3Ugc3VibWl0LCBtYWtlIHN1cmUgZXZlcnl0aGluZyBydW5zIGFzIGV4cGVjdGVkLgoKWW91IGNhbiBhZGQgc2VjdGlvbnMgYXMgeW91IHNlZSBmaXQuIE1ha2Ugc3VyZSB5b3UgaGF2ZSBhIHNlY3Rpb24gY2FsbGVkICJJbnRyb2R1Y3Rpb24iIGF0IHRoZSBiZWdpbm5pbmcgYW5kIGEgc2VjdGlvbiBjYWxsZWQgIkNvbmNsdXNpb24iIGF0IHRoZSBlbmQuIFRoZSByZXN0IGlzIHVwIHRvIHlvdSEKCl9NYWtlIHVzZSBvZiB5b3VyIGtub3dsZWRnZSBvZiBNYXJrZG93biB0byBhcHByb3ByaWF0ZWx5IHR5cGVzZXQgdGhpcyByZXBvcnQhXw==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkZpbmFsIFJlcG9ydCBmb3IgSW50cm8gdG8gRGF0YSBTY2llbmNlIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQotLS0NCg0KVGhpcyBpcyB3aGVyZSB0aGUgZmluYWwgcHJvamVjdCByZXBvcnQgd3JpdGUtdXAgZ29lcy4gDQoNCg0KQmVmb3JlIHlvdSBzdWJtaXQsIG1ha2Ugc3VyZSBldmVyeXRoaW5nIHJ1bnMgYXMgZXhwZWN0ZWQuDQoNCllvdSBjYW4gYWRkIHNlY3Rpb25zIGFzIHlvdSBzZWUgZml0LiBNYWtlIHN1cmUgeW91IGhhdmUgYSBzZWN0aW9uIGNhbGxlZCAiSW50cm9kdWN0aW9uIiBhdCB0aGUgYmVnaW5uaW5nIGFuZCBhIHNlY3Rpb24gY2FsbGVkICJDb25jbHVzaW9uIiBhdCB0aGUgZW5kLiBUaGUgcmVzdCBpcyB1cCB0byB5b3UhDQoNCl9NYWtlIHVzZSBvZiB5b3VyIGtub3dsZWRnZSBvZiBNYXJrZG93biB0byBhcHByb3ByaWF0ZWx5IHR5cGVzZXQgdGhpcyByZXBvcnQhXw0KDQoNCmBgYHtyLCBtZXNzYWdlPUZBTFNFLCB3YXJuaW5nPUZBTFNFfQ0KbGlicmFyeSh0aWR5dmVyc2UpDQpgYGANCg0KDQojIyBMb2FkaW5nIHRoZSBkYXRhDQoNCmxvYWQgdGhlIGBkYXRhc2V0c2ANCg0KYGBge3J9DQpzdW1tZXJfaGl0c19VUkwgPC0gImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9yZWlzYW5hci9kYXRhc2V0cy9tYXN0ZXIvQkJfdG9wMTAwXzIwMTUuY3N2Ig0Kc3VtbWVyX2hpdHMgPC0gcmVhZC5jc3Yoc3VtbWVyX2hpdHNfVVJMKQ0Kc3VtbWVyX2hpdHMNCmBgYA0KDQpgYGB7cn0NCmJpbGxib2FyZF90b3BfaGl0c19sb25nIDwtICJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vcmVpc2FuYXIvZGF0YXNldHMvZTc0ZGU5ZTE2MjI3NTI3ZGExZjEyMjA4ZGI4OWZlODIxODgyNjlmYi9iYlRvcDEwMC5jc3YiDQpiYl9leHRyYV9pbmZvIDwtIHJlYWQuY3N2KGJpbGxib2FyZF90b3BfaGl0c19sb25nKQ0KYmJfZXh0cmFfaW5mbw0KYGBgDQoNCg0KYGBge3J9DQpiYjIwMTUgPC0gYmJfZXh0cmFfaW5mbyAlPiUgDQogIGZpbHRlcih5ZWFyID09IDIwMTUpIA0KYmIyMDE1DQpgYGANCg0KYGBge3J9DQpuYW1lcyhiYjIwMTUpW25hbWVzKGJiMjAxNSkgPT0gJ2FydGlzdF9uYW1lJ10gPC0gJ0FydGlzdCcNCmBgYA0KDQoNCmBgYHtyfQ0KbmV3X2RhdGEgPC0gZnVsbF9qb2luKHN1bW1lcl9oaXRzLCBiYjIwMTUsIGJ5ID0gIkFydGlzdCIpDQpuZXdfZGF0YQ0KYGBgDQoNCg0KYGBge3J9DQpuZXdfZGF0YSAlPiUNCiAgZmlsdGVyKEFydGlzdCA9PSAidGhlIHdlZWtuZCIpDQpgYGANCg0K</div>
 
 
 

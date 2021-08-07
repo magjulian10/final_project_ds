@@ -11,3 +11,49 @@ Before you submit, make sure everything runs as expected.
 You can add sections as you see fit. Make sure you have a section called "Introduction" at the beginning and a section called "Conclusion" at the end. The rest is up to you!
 
 _Make use of your knowledge of Markdown to appropriately typeset this report!_
+
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+
+## Loading the data
+
+load the `datasets`
+
+```{r}
+summer_hits_URL <- "https://raw.githubusercontent.com/reisanar/datasets/master/BB_top100_2015.csv"
+summer_hits <- read.csv(summer_hits_URL)
+summer_hits
+```
+
+```{r}
+billboard_top_hits_long <- "https://raw.githubusercontent.com/reisanar/datasets/e74de9e16227527da1f12208db89fe82188269fb/bbTop100.csv"
+bb_extra_info <- read.csv(billboard_top_hits_long)
+bb_extra_info
+```
+
+
+```{r}
+bb2015 <- bb_extra_info %>% 
+  filter(year == 2015) 
+bb2015
+```
+
+```{r}
+names(bb2015)[names(bb2015) == 'artist_name'] <- 'Artist'
+```
+
+
+```{r}
+new_data <- full_join(summer_hits, bb2015, by = "Artist")
+new_data
+```
+
+
+```{r}
+new_data %>%
+  filter(Artist == "the weeknd")
+```
+
