@@ -4,15 +4,16 @@
 
 Team members: 
 
-- Student 1: [Rei Sanchez-Arias](mailto:rsanchezarias@floridapoly.edu)
+- Student 1: [Maggie Julian](mailto:mjulian1681@floridapoly.edu)
 
-- Student 2: [Student name](mailto:student2@floridapoly.edu)
-
-- Student 3: [Student name](mailto:student3@floridapoly.edu)
+- Student 2: [Victoria Cinquepalmi](mailto:vcinquepalmi1665@floridapoly.edu)
 
 
 **Summary**
 
-Our project investigates the main characteristics of popular movies in recent years.
-We will be using the data available at: 
-<https://github.com/reisanar/datasets/blob/master/IMDB_movies.csv> 
+Our project investigates Billboard's top 100 from the summer of 2015. 
+
+The links to our datasets:
+
+- [Just 2015](https://raw.githubusercontent.com/reisanar/datasets/master/BB_top100_2015.csv)
+- [Top hits from 1960 to 2016](https://raw.githubusercontent.com/reisanar/datasets/e74de9e16227527da1f12208db89fe82188269fb/bbTop100.csv)
