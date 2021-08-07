@@ -54,6 +54,7 @@ new_data
 
 ```{r}
 new_data %>%
-  filter(Artist == "the weeknd")
+  filter(str_detect(Artist,"featuring"))
 ```
+
 
