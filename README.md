@@ -1,6 +1,6 @@
 # Final Project for Intro to Data Science
 
-## Term YYYY
+## Term Summer B 2021
 
 Team members: 
 
