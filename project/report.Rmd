@@ -96,7 +96,6 @@ summer_hits %>%
       TRUE ~ "No"
     )
   )
-g
 ```
 
 
