@@ -66,9 +66,6 @@ library(ggplot2)
 
 
 
-
-
-
 ```{r}
 names(bb2015)[names(bb2015) == 'artist_name'] <- 'Artist'
 ```
@@ -112,10 +109,17 @@ As you can see on the graph above, the range of ranks that featured the most amo
 
 
 ```{r}
-new_data %>%
-   filter(str_detect(Lyrics,"baby"))
+bb <- new_data %>%
+  group_by(str_detect(Lyrics, "baby")) %>%
+  ggplot() +
+  geom_col(aes(x = "Lyrics", y = .6, fill = str_detect(Lyrics, "baby"))) +
+  labs(title = "Songs Containing 'baby' VS the Songs that Don't", x = "Lyrics", y = "Number of Songs")
+bb
   
 ```
+
+
+
 
 
 
