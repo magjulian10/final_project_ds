@@ -17,7 +17,7 @@ _Make use of your knowledge of Markdown to appropriately typeset this report!_
 We are going to be pulling apart Billboard's top 100 from 2015 to find out:
 
 - How many songs have people featured?
-- How many songs say baby or a similar word in the lyrics?
+- How many songs say baby or in the lyrics?
 
 
 ### Loading the `tidyverse` 
@@ -27,7 +27,7 @@ library(tidyverse)
 ```
 
 
-### Loading the `datasets`
+### Loading the `dataset`
 
 This is the data set for all of the summer hits from 2015
 
@@ -38,21 +38,6 @@ summer_hits
 ```
 
 
-This is the data set for the Billboard top hits from 1960 to 2016
-
-```{r}
-billboard_top_hits_long <- "https://raw.githubusercontent.com/reisanar/datasets/e74de9e16227527da1f12208db89fe82188269fb/bbTop100.csv"
-bb_extra_info <- read.csv(billboard_top_hits_long)
-bb_extra_info
-```
-
-Filtering to data to just 2015
-
-```{r}
-bb2015 <- bb_extra_info %>% 
-  filter(year == 2015) 
-bb2015
-```
 
 ### Loading `ggplot2`
 
@@ -61,17 +46,7 @@ library(ggplot2)
 ```
 
 
-This function changed the name that labeled the artist in the data set bb2015 to match the name labeled the artists on the summer_hits data set. This step was essential to be able to merge the two data sets together. If the sets don't have a common factor it is impossible to merge them together.
-```{r}
-names(bb2015)[names(bb2015) == 'artist_name'] <- 'Artist'
-```
 
-Merging the two data sets 
-
-```{r}
-new_data <- full_join(summer_hits, bb2015, by = "Artist")
-new_data
-```
 
 
 ## Question 1
@@ -85,7 +60,7 @@ Filtering the data:
 We want to filter the data to show only the songs that contain featuring artists on them. 
 
 ```{r}
-featured <- new_data %>%
+featured <- summer_hits %>%
   filter(str_detect(Artist,"featuring"))
 featured
 ```
@@ -105,10 +80,30 @@ As you can see on the graph above, the range of ranks that featured the most amo
 
 
 
+## Question 2
+
+### How many songs say baby in the lyrics?
+
+
+We wanted to answer this question because a common critique about modern music is how it repeatedly says the word baby, and we wanted to find out if that's true. 
+
 
 ```{r}
-bb <- new_data %>%
-  group_by(str_detect(Lyrics, "baby")) %>%
+summer_hits %>% 
+  mutate(
+    contains_baby = case_when(
+      str_detect(Lyrics, "baby") ~ "yes", 
+      TRUE ~ "No"
+    )
+  )
+g
+```
+
+
+
+```{r}
+bb <- summer_hits %>%
+  filter(str_detect(Lyrics, "baby")) %>%
   ggplot() +
   geom_col(aes(x = "Lyrics", y = .6, fill = str_detect(Lyrics, "baby"))) +
   labs(title = "Songs Containing 'baby' VS the Songs that Don't", x = "Lyrics", y = "Number of Songs")
