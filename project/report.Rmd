@@ -67,7 +67,7 @@ featured
 The table above presents songs, made in the summer of 2015, that had another artist featured on it. 
 
 
-Making the graph for question 1:
+Making the graph:
 
 ```{r}
 featured %>% 
@@ -88,16 +88,23 @@ As you can see on the graph above, the range of ranks that featured the most amo
 We wanted to answer this question because a common critique about modern music is how it repeatedly says the word baby, and we wanted to find out if that's true. 
 
 
+The code below is creating another column of data that is figuring out wheather or not that a song contains the lyric "baby"
+
 ```{r}
-summer_hits %>% 
+has_baby <- summer_hits %>% 
   mutate(
-    contains_baby = case_when(
+      contains_baby = case_when(
       str_detect(Lyrics, "baby") ~ "yes", 
-      TRUE ~ "No"
-    )
-  )
+      TRUE ~ "No"))
+has_baby
 ```
 
+
+```{r}
+ggplot(has_baby) +
+  geom_col(aes(x = contains_baby, y = 1, color = contains_baby)) +
+  labs(title = "Songs Containing 'baby' VS the Songs that Don't", x = "Lyrics", y = "Number of Songs")
+```
 
 
 ```{r}
