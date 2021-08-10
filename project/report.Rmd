@@ -92,6 +92,9 @@ featured %>%
 As you can see on the graph above, the range of ranks that featured the most amount of artists were at 25, 45, and 75. This graph is showing that there probably was not an correlation between how well the song ranked, weather or not the song had someone featured on it. 
 
 
+## Our Thoughts
+We were kind of surprised with the data because there wasn't a big jump in the rank compared to featured artists.We thought there was going to be more of a correlation between the two because we know from personal experience that were more apt to listen to a song if an artist we know is featured on it. As an example, the number 1 ranked song is "Uptown Funk" which is by Mark Ronson featuring Bruno Mars, but everyone knows the song because of Bruno Mars.
+
 
 # Question 2
 
@@ -188,6 +191,8 @@ ggplot(has_boy) +
 ```
 The graph above is showing that not a single song in the list contains the lyric "boy"
 
+## Our Thoughts
+Again the data surprised us not only with baby but with the words boy and girl. Knowing the time period of 2015 we expected so many more songs to have the lyric "baby " in it rather than a 50-50 split. With the lyric "boy" however, it made more sense because artists are more likely to write about females rather than males. 
 
 
 
