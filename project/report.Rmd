@@ -13,6 +13,8 @@ video- https://web.microsoftstream.com/video/654e7ac4-22ae-4e57-a4fa-74fd3fbfe30
 
 slides- https://docs.google.com/presentation/d/1S-nmrpwXVyLgNh-qzCdaE22Q1fuqSNrvpMtZkDpLDUY/edit#slide=id.gc6f9e470d_0_0 
 
+github - https://github.com/magjulian10/final_project_ds 
+
 # Introduction
 
 The data set we chose was the billboard top 100 from 2015. We collected this data from Professor Sanchez-Arias Github. 
