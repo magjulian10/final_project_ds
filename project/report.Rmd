@@ -1,6 +1,11 @@
 ---
 title: "Final Report for Intro to Data Science"
-output: html_notebook
+output:
+   html_notebook:
+    number_sections: yes
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
 ---
 
 
@@ -41,7 +46,7 @@ library(ggplot2)
 
 
 
-## Question 1
+# Question 1
 
 ### How well do songs that have featured  artists rank?
 
@@ -72,7 +77,7 @@ As you can see on the graph above, the range of ranks that featured the most amo
 
 
 
-## Question 2
+# Question 2
 
 ### How many songs say baby in the lyrics?
 
@@ -94,7 +99,7 @@ has_baby
 ```
 
 
-Making the graph:
+Making the graphs:
 
 ```{r}
 ggplot(has_baby) +
@@ -104,6 +109,14 @@ ggplot(has_baby) +
 
 The graph above is showing that there is the exact same number of songs that have the lyric baby. 
 
+
+Pulling the data:
+
+```{r}
+has_baby %>% 
+  filter(contains_baby == "yes")
+```
+The dataset above is showing a decently even dispursement of songs that contain the word baby. 
 
 
 The code below is creating another column of data that is figuring out whether or not that a song contains the lyric "girl"
@@ -128,6 +141,14 @@ ggplot(has_girl) +
 ```
 
 The graph above shows that there are 42 songs  containg the lyric "girl"
+
+Pulling the data:
+
+```{r}
+has_girl %>% 
+  filter(contains_girl == "yes")
+```
+The data set above shows a pretty even disbursement of songs that contain the lyric "baby" 
 
 
 
@@ -158,6 +179,6 @@ The graph above is showing that not a single song in the list contains the lyric
 
 # Conclusion
 
-We have found out that it doesn’t matter what type of song you make you have at least a 50-50 shot of being in the top 100. We say this because, the data we have presented has shown it does not have an effect if an artist collaborates with others or if they use words like “baby” to make their song rise to the top. It truly depends on what the people like most at the moment. 
+We have found out that it doesn’t matter what type of song you make you have at about the same chance of being in the top 100. We came to this conclusion because, the data we have presented has shown it does a small effect if an artist includles lyrics like "girl or "baby" collaborates with others or if they use words like “baby” to make their song rise to the top. It truly depends on what the people like most at the moment. 
 
 
