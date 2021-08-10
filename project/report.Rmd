@@ -11,6 +11,18 @@ output:
 
 # Introduction
 
+The data set we chose was the billboard top 100 from 2015. We collected this data from Professor Sanchez-Arias Github. 
+
+|The Variables    | What they do                          |
+|-----------------|---------------------------------------|
+| Rank            | Shows the rank from 1 to 100          |
+| Song            | Shows the song title                  |
+| Artist          | Shows the name of the singer(s)       |
+| Year            | Shows the year of the songs release   |
+| Lyrics          | Shows the lyrics of the song          | 
+
+The pacages we used are the `tidyverse` and `ggplot2`
+
 We are going to be pulling apart Billboard's top 100 from 2015 to find out:
 
 - Does having someone featured have an effect on how well the song ranks?
