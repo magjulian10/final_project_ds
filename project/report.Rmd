@@ -3,21 +3,13 @@ title: "Final Report for Intro to Data Science"
 output: html_notebook
 ---
 
-This is where the final project report write-up goes. 
-
-
-Before you submit, make sure everything runs as expected.
-
-You can add sections as you see fit. Make sure you have a section called "Introduction" at the beginning and a section called "Conclusion" at the end. The rest is up to you!
-
-_Make use of your knowledge of Markdown to appropriately typeset this report!_
 
 # Introduction
 
 We are going to be pulling apart Billboard's top 100 from 2015 to find out:
 
-- How many songs have people featured?
-- How many songs say baby or in the lyrics?
+- Does having someone featured have an effect on how well the song ranks?
+- Do songs that contain certain words rank higher?
 
 
 ### Loading the `tidyverse` 
@@ -84,11 +76,13 @@ As you can see on the graph above, the range of ranks that featured the most amo
 
 ### How many songs say baby in the lyrics?
 
-
 We wanted to answer this question because a common critique about modern music is how it repeatedly says the word baby, and we wanted to find out if that's true. 
 
 
+The code below is creating another column of data that is figuring out whether or not that a song contains the lyric "baby"
+
 The code below is creating another column of data that is figuring out wheather or not that a song contains the lyric "baby"
+
 
 ```{r}
 has_baby <- summer_hits %>% 
@@ -100,44 +94,70 @@ has_baby
 ```
 
 
+Making the graph:
+
 ```{r}
 ggplot(has_baby) +
   geom_col(aes(x = contains_baby, y = 1, color = contains_baby)) +
   labs(title = "Songs Containing 'baby' VS the Songs that Don't", x = "Lyrics", y = "Number of Songs")
 ```
 
+The graph above is showing that there is the exact same number of songs that have the lyric baby. 
+
+
+
+The code below is creating another column of data that is figuring out whether or not that a song contains the lyric "girl"
 
 ```{r}
-bb <- summer_hits %>%
-  filter(str_detect(Lyrics, "baby")) %>%
-  ggplot() +
-  geom_col(aes(x = "Lyrics", y = .6, fill = str_detect(Lyrics, "baby"))) +
-  labs(title = "Songs Containing 'baby' VS the Songs that Don't", x = "Lyrics", y = "Number of Songs")
-bb
-  
+has_girl <- summer_hits %>% 
+  mutate(
+    contains_girl = case_when(
+      str_detect(Lyrics, "girl") ~ "yes", 
+      TRUE ~ "No"
+    )
+  ) 
+has_girl
 ```
 
+Making the graph:
+
+```{r}
+ggplot(has_girl) +
+  geom_col(aes(x = contains_girl, y = 1, color = contains_girl)) +
+  labs(title = "Songs Containing 'girl' VS the Songs that Don't", x = "Lyrics", y = "Number of Songs")
+```
+
+The graph above shows that there are 42 songs  containg the lyric "girl"
+
+
+
+The code below is creating another column of data that is figuring out whether or not that a song contains the lyric "boy"
+
+```{r}
+has_boy <- summer_hits %>% 
+  mutate(
+    contains_boy = case_when(
+      str_detect(Lyrics, "Boy") ~ "yes", 
+      TRUE ~ "No"
+    )
+  ) 
+has_boy
+```
+
+Creating the graph:
+
+```{r}
+ggplot(has_boy) +
+  geom_col(aes(x = contains_boy, y = 1, color = contains_boy)) +
+  labs(title = "Songs Containing 'boy' VS the Songs that Don't", x = "Lyrics", y = "Number of Songs")
+```
+The graph above is showing that not a single song in the list contains the lyric "boy"
 
 
 
 
+# Conclusion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+We have found out that it doesn’t matter what type of song you make you have at least a 50-50 shot of being in the top 100. We say this because, the data we have presented has shown it does not have an effect if an artist collaborates with others or if they use words like “baby” to make their song rise to the top. It truly depends on what the people like most at the moment. 
 
 
