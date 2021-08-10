@@ -2,7 +2,8 @@
 
 The file `ideas.Rmd` includes preliminary ideas for the project, including initial exploratory data analysis questions, plan for data exploration, etc.
 
-##ideas
+Ideas
+
 How many songs have people featured?
 How Many songs say baby or a similar word in the lyrics?
 The average amount of lines in a song?
