@@ -81,16 +81,18 @@ We wanted to answer this question because a common critique about modern music i
 
 The code below is creating another column of data that is figuring out whether or not that a song contains the lyric "baby"
 
+The code below is creating another column of data that is figuring out wheather or not that a song contains the lyric "baby"
+
+
 ```{r}
 has_baby <- summer_hits %>% 
   mutate(
-    contains_baby = case_when(
+      contains_baby = case_when(
       str_detect(Lyrics, "baby") ~ "yes", 
-      TRUE ~ "No"
-    )
-  ) 
+      TRUE ~ "No"))
 has_baby
 ```
+
 
 Making the graph:
 
