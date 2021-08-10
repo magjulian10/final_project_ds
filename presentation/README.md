@@ -2,4 +2,4 @@
 
 Here is a copy of the presentation used to discuss the results of the final project. 
 
-(You can include a `.pptx` or `.pdf` version of your presentation here)
+https://docs.google.com/presentation/d/1S-nmrpwXVyLgNh-qzCdaE22Q1fuqSNrvpMtZkDpLDUY/edit?usp=sharing 

@@ -1,14 +1,9 @@
-# Data Description: IMDB popular movies data
+# Data Description: 
 
-(this is an example only. Edit this file as you see fit. It is recommended that you also include a copy of the original data used for this project in this folder - typically in `.csv` format)
+Title: BB_top100_2015
 
-We use the `IMDB_movies.csv` dataset available at 
-<https://github.com/reisanar/datasets/blob/master/IMDB_movies.csv>
+Description: This data set includes the top 100 songs in 2015, their rank and lyrics of the songs.
 
-This dataset includes information of popular movies on IMDB in the last 10 years. 
+Varibales: artist, rank, song, and lyrics.   
 
-The data fields included are: Title, Genre, Description, Director, Actors, Year, Runtime, Rating, Votes, Revenue, Metascore (score of the movie on the metacritic website)
-
-Below we include some basic statistics for this datasets, including dimensions and range of years ...
-
-(add basic summary if needed. Notice that the information above can be reused for one of the sections for the final project report)
+link: https://github.com/VCinq4/datasets/blob/master/BB_top100_2015.csv
